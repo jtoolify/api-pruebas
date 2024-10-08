@@ -2,7 +2,8 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import authRoutes from './routes/authRoutes.js';
-import categoryRoutes from './routes/categoryRoutes.js';
+// import categoryRoutes from './routes/categoryRoutes.js';
+import characterRoutes from './routes/characterRoutes.js';
 import logger from './middlewares/logger.js';
 import { configureCors } from './config/cors.js';
 
@@ -14,8 +15,8 @@ app.use(logger);
 app.use(cors(configureCors()));
 
 app.use('/api/auth', authRoutes);
-app.use('/api/categories', categoryRoutes); // Añadir rutas de categorías
-
+// app.use('/api/categories', categoryRoutes); // Añadir rutas de categorías
+app.use('/api/characters', characterRoutes);
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en el puerto ${PORT}`);
